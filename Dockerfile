@@ -6,7 +6,6 @@ RUN git clone https://github.com/joebeachjoebeach/json-path-finder.git && \
     ([[ "$TAG" = "latest" ]] || git checkout ${TAG}) && \
     rm -rf .git
 
-FROM pierrezemb/gostatic
+FROM lipanski/docker-static-website
 
-COPY --from=base /git/json-path-finder /srv/http
-EXPOSE 8043
+COPY --from=base /git/json-path-finder .
